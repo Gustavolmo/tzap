@@ -197,13 +197,14 @@ func Execute() {
 }
 
 var modelMap map[string]string = map[string]string{
-	"gpt35":    openai.GPT3Dot5Turbo,
-	"gpt356":   openai.GPT3Dot5Turbo0613,
-	"gpt3516":  openai.GPT16,
-	"gpt3516k": openai.GPT16,
-	"gpt16":    openai.GPT16,
-	"gpt4":     openai.GPT4,
-	"gpt32":    openai.GPT432K,
+	"gpt35":    	openai.GPT3Dot5Turbo,
+	"gpt3516":  	openai.GPT16,
+	"gpt3516k": 	openai.GPT16,
+	"gpt16":    	openai.GPT16,
+	"gpt4o": 			openai.GPT4o,
+	"gpt4oMini":	openai.GPT4oMini,
+	"gpt4":     	openai.GPT4,
+	"gpt32":    	openai.GPT432K,
 }
 
 func init() {
@@ -211,7 +212,7 @@ func init() {
 	tzapCliSettings.MD5Rewrites = true
 	tzapCliSettings.LoggerOutput = ".tzap-data/logs/"
 
-	RootCmd.PersistentFlags().StringVarP(&tzapCliSettings.Model, "model", "m", "gpt16", "Define what openai model to use. (Available gpt35 gpt356 (june model) gpt3516 (alias gpt16) gpt4).")
+	RootCmd.PersistentFlags().StringVarP(&tzapCliSettings.Model, "model", "m", "gpt16", "Define what openai model to use. (Available gpt35 gpt3516 (alias gpt16) gpt4 gpt4o gpt4oMini).")
 	RootCmd.PersistentFlags().StringVarP(&tzapCliSettings.CompletionURL, "baseurl", "b", "", "Completion URL")
 	RootCmd.PersistentFlags().StringVar(&tzapCliSettings.EmbeddingURL, "embeddingbaseurl", "", "Embedding URL")
 	RootCmd.PersistentFlags().Float32VarP(&tzapCliSettings.Temperature, "temperature", "t", 1.0, "Temperature for the interaction.")
